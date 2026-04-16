@@ -1,9 +1,17 @@
-import React from 'react'
-
-export default function Title({children}) {
+export default function Title({ children, className }) {
   return (
-    <h2 className='font-bold text-4xl text-[#374151]'>
+    <h1
+      className={`
+        font-semibold
+        text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+        leading-tight md:leading-[1.2]
+        
+        text-gray-900 dark:text-gray-100
+        
+        ${className}
+      `}
+    >
       {children}
-    </h2>
-  )
+    </h1>
+  );
 }
