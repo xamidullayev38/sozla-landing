@@ -3,7 +3,7 @@ import Button from "@/shared/ui/Button";
 import logo from "@assets/img/nav/logo.png";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/features/theme-toggle/ui/ThemeToggle";
-
+import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -50,68 +50,72 @@ export default function Navbar() {
             className="md:hidden w-10 h-10 flex items-center justify-center border rounded-lg"
             onClick={() => setIsOpen(true)}
           >
-            ☰
+            <Menu size={22} />
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="fixed inset-0 bg-black/40 z-50">
-            <div className="bg-[#F8F9FA] h-screen w-full flex flex-col px-5 pb-4">
-              <div className="max-w-md w-full mx-auto flex flex-col h-full">
-                {/* Top */}
-                <div className="flex items-center justify-between py-4 border-b border-gray-200 mb-6">
-                  <img src={logo} alt="Logo" className="h-8" />
+        <div className="fixed inset-0 z-50 bg-black/40">
+          
+          {/* Panel */}
+          <div className="bg-[#F8F9FA] dark:bg-gray-900 
+            h-[100dvh] w-full flex flex-col px-5 pt-4 pb-[env(safe-area-inset-bottom)] 
+            overflow-y-auto">
 
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 flex items-center justify-center rounded-xl border bg-white hover:bg-gray-100"
-                  >
-                    ✕
-                  </button>
-                </div>
+            {/* Top */}
+            <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
+              <img src={logo} alt="Logo" className="h-8" />
 
-                {/* Menu */}
-                <nav className="flex flex-col gap-2">
-                  <Link className="px-4 py-3 rounded-xl hover:bg-white">
-                    Asosiy
-                  </Link>
-                  <Link className="px-4 py-3 rounded-xl hover:bg-white">
-                    Ilova haqida
-                  </Link>
-                  <Link className="px-4 py-3 rounded-xl hover:bg-white">
-                    Biz haqimizda
-                  </Link>
-                  <Link className="px-4 py-3 rounded-xl hover:bg-white">
-                    Bog‘lanish
-                  </Link>
-                  <Link className="px-4 py-3 rounded-xl hover:bg-white">
-                    FAQ
-                  </Link>
-                </nav>
-
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700 dark:text-gray-300">
-                    Theme
-                  </span>
-                  <ThemeToggle />
-                </div>
-                {/* Bottom */}
-                <div className="mt-auto bg-white p-4 rounded-2xl shadow-sm flex flex-col gap-4">
-                  <select className="border rounded-xl px-4 py-3">
-                    <option>O‘zbek</option>
-                    <option>Русский</option>
-                    <option>English</option>
-                  </select>
-
-                  <Button className="bg-primary text-white py-3 rounded-full w-full text-lg">
-                    Yuklab olish
-                  </Button>
-                </div>
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-xl border 
+                bg-white dark:bg-gray-800 
+                text-gray-700 dark:text-gray-200
+                hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              >
+                <X size={22} />
+              </button>
             </div>
+
+            {/* Menu */}
+            <nav className="flex flex-col gap-2 text-gray-800 dark:text-gray-200">
+              {["Asosiy", "Ilova haqida", "Biz haqimizda", "Bog‘lanish", "FAQ"].map((item) => (
+                <Link
+                  key={item}
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition"
+                >
+                  {item}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Theme */}
+            <div className="flex items-center justify-between mt-6 text-gray-700 dark:text-gray-300">
+              <span>Theme</span>
+              <ThemeToggle />
+            </div>
+
+            {/* Bottom */}
+            <div className="mt-auto bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm flex flex-col gap-4">
+              
+              <select className="border rounded-xl px-4 py-3 
+                bg-white dark:bg-gray-700 
+                text-gray-700 dark:text-gray-200">
+                <option>O‘zbek</option>
+                <option>Русский</option>
+                <option>English</option>
+              </select>
+
+              <Button className="bg-primary text-white py-3 rounded-full w-full text-lg hover:opacity-90">
+                Yuklab olish
+              </Button>
+            </div>
+
           </div>
-        )}
+        </div>
+      )}
       </div>
     </header>
   );
