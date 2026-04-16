@@ -5,7 +5,7 @@ import heroImg from "@assets/img/hero/phone.png";
 
 export default function Hero() {
   return (
-    <section className="py-12 md:py-20 bg-white dark:bg-[#0F172A] transition">
+    <section className="min-h-[100dvh] flex items-center py-12 md:py-20 bg-white dark:bg-[#0F172A] transition">
       <div className="container">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10">
           {/* TEXT */}
@@ -30,7 +30,8 @@ export default function Hero() {
               className="z-20 w-[280px] md:w-[400px] lg:w-[530px]"
             />
 
-            <div className="absolute z-10 top-11 right-8 w-[400px] h-[400px] bg-[#65B741]/50 dark:bg-[#6CC24A]/30
+            <div
+              className="absolute z-10 top-11 right-8 w-[400px] h-[400px] bg-[#65B741]/50 dark:bg-[#6CC24A]/30
                 rounded-full blur-[180px]"
             ></div>
           </div>

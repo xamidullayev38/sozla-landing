@@ -47,7 +47,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden w-10 h-10 flex items-center justify-center border rounded-lg"
+            className="md:hidden w-10 h-10 flex items-center justify-center border rounded-lg text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
             onClick={() => setIsOpen(true)}
           >
             <Menu size={22} />
@@ -56,66 +56,68 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black/40">
-          
-          {/* Panel */}
-          <div className="bg-[#F8F9FA] dark:bg-gray-900 
+          <div className="fixed inset-0 z-50 bg-black/40">
+            {/* Panel */}
+            <div
+              className="bg-[#F8F9FA] dark:bg-gray-900 
             h-[100dvh] w-full flex flex-col px-5 pt-4 pb-[env(safe-area-inset-bottom)] 
-            overflow-y-auto">
+            overflow-y-auto"
+            >
+              {/* Top */}
+              <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
+                <img src={logo} alt="Logo" className="h-8" />
 
-            {/* Top */}
-            <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 mb-6">
-              <img src={logo} alt="Logo" className="h-8" />
-
-              <button
-                onClick={() => setIsOpen(false)}
-                className="w-10 h-10 flex items-center justify-center rounded-xl border 
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl border 
                 bg-white dark:bg-gray-800 
                 text-gray-700 dark:text-gray-200
                 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-              >
-                <X size={22} />
-              </button>
-            </div>
-
-            {/* Menu */}
-            <nav className="flex flex-col gap-2 text-gray-800 dark:text-gray-200">
-              {["Asosiy", "Ilova haqida", "Biz haqimizda", "Bog‘lanish", "FAQ"].map((item) => (
-                <Link
-                  key={item}
-                  onClick={() => setIsOpen(false)}
-                  className="px-4 py-3 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition"
                 >
-                  {item}
-                </Link>
-              ))}
-            </nav>
+                  <X size={22} />
+                </button>
+              </div>
 
-            {/* Theme */}
-            <div className="flex items-center justify-between mt-6 text-gray-700 dark:text-gray-300">
-              <span>Theme</span>
-              <ThemeToggle />
+              {/* Menu */}
+              <nav className="flex flex-col gap-2 text-gray-800 dark:text-gray-200">
+                {[
+                  "Asosiy",
+                  "Ilova haqida",
+                  "Biz haqimizda",
+                  "Bog‘lanish",
+                  "FAQ",
+                ].map((item) => (
+                  <Link
+                    key={item}
+                    onClick={() => setIsOpen(false)}
+                    className="px-4 py-3 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Theme */}
+              <div className="flex items-center justify-between mt-6 text-gray-700 dark:text-gray-300">
+                <span>Theme</span>
+                <ThemeToggle />
+              </div>
+
+              {/* Bottom */}
+              <div className="mt-auto bg-white dark:bg-gray-800 p-4 mb-2 rounded-2xl shadow-sm flex flex-col gap-4">
+                <select className="w-full border rounded-xl px-4 py-3 pr-12 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                  <option>O‘zbek</option>
+                  <option>Русский</option>
+                  <option>English</option>
+                </select>
+
+                <Button className="bg-primary text-white py-3 rounded-full w-full text-lg hover:opacity-90">
+                  Yuklab olish
+                </Button>
+              </div>
             </div>
-
-            {/* Bottom */}
-            <div className="mt-auto bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm flex flex-col gap-4">
-              
-              <select className="border rounded-xl px-4 py-3 
-                bg-white dark:bg-gray-700 
-                text-gray-700 dark:text-gray-200">
-                <option>O‘zbek</option>
-                <option>Русский</option>
-                <option>English</option>
-              </select>
-
-              <Button className="bg-primary text-white py-3 rounded-full w-full text-lg hover:opacity-90">
-                Yuklab olish
-              </Button>
-            </div>
-
           </div>
-        </div>
-      )}
+        )}
       </div>
     </header>
   );
