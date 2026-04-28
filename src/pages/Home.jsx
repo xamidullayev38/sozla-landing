@@ -1,4 +1,6 @@
 import Button from "../shared/ui/Button";
+import Footer from "../widgets/Footer";
+import Exercices from "../widgets/home/Exercises";
 import Feature from "../widgets/home/Feature";
 import Hero from "../widgets/home/Hero";
 import HowItWorks from "../widgets/home/HowItWorks";
@@ -13,6 +15,8 @@ export default function Home() {
       <Problems />
       <Feature />
       <HowItWorks />
+      <Exercices />
+      <Footer />
     </>
   )
 }

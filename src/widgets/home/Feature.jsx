@@ -71,13 +71,13 @@ const Feature = () => {
   return (
     <section
       className="
-      w-full py-5
+      w-full py-20
       bg-[#f5f7f6] dark:bg-[#0f172a]
       transition-colors duration-300
     "
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="mx-auto my-20 max-w-[530px]">
+        <div className="mx-auto mb-10 max-w-[530px]">
           <GlobTitle>“So`zla” zamonaviy va samarali yechim </GlobTitle>
         </div>
         <div className="grid md:grid-cols-3 gap-10 items-center">

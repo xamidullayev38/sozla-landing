@@ -7,66 +7,75 @@ const steps = [
   {
     id: 1,
     title: "Profil yarating",
-    desc: "Bola haqida asosiy ma’lumotlarni kiriting va uning nutq darajasini aniqlashni boshlang. Tizim dastlabki baholash orqali individual yondashuvni shakllantiradi.",
+    desc: "Bola haqida asosiy ma’lumotlarni kiriting va uning nutq darajasini aniqlashni boshlang.",
   },
   {
     id: 2,
     title: "Individual mashg‘ulotlar",
-    desc: "Ilova bolaning darajasiga moslashtirilgan mashqlar va interaktiv o‘yinlar taqdim etadi. Har bir mashg‘ulot nutqni bosqichma-bosqich rivojlantirishga qaratilgan.",
+    desc: "Ilova bolaning darajasiga moslashtirilgan mashqlar va interaktiv o‘yinlar taqdim etadi.",
   },
   {
     id: 3,
     title: "Mukammal natijaga erishing",
-    desc: "Doimiy va bosqichma-bosqich mashg‘ulotlar orqali bola nutqi yanada ravon va aniq bo‘lib boradi. Har bir dars uning talaffuzini yaxshilashga yordam beradi.",
+    desc: "Doimiy mashg‘ulotlar orqali bola nutqi yanada ravon bo‘ladi.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="bg-gray-50 dark:bg-[#0F172A] py-16">
+    <section className="bg-gray-50 dark:bg-[#0F172A] py-16 lg:py-20">
       <div className="container">
-        <div className="text-center mx-auto pb-10">
+
+        {/* TITLE */}
+        <div className="text-center mx-auto pb-10 lg:pb-14">
           <GlobTitle>Ilova qanday ishlaydi</GlobTitle>
         </div>
 
-        <div className="flex items-center justify-between">
-          {/* LEFT - IMAGE */}
-          <div className="flex justify-center lg:justify-start">
+        {/* CONTENT */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+          {/* IMAGE */}
+          <div className="w-full flex justify-center lg:justify-start">
             <img
               src={phoneMockup}
               alt="app preview"
-              className="max-w-[620px] w-full object-contain"
+              className="max-w-[280px] sm:max-w-[340px] md:max-w-[420px] lg:max-w-[520px] xl:max-w-[620px] w-full object-contain"
             />
           </div>
 
-          {/* RIGHT - STEPS */}
-          <div className="relative">
-            <div className="space-y-10">
+          {/* STEPS */}
+          <div className="relative w-full max-w-[520px]">
+
+            <div className="space-y-10 sm:space-y-12">
               {steps.map((step, index) => (
-                <div key={step.id} className="flex items-start gap-5 relative">
-                  {/* Chiziq — oxirgi elementda yo'q */}
+                <div key={step.id} className="flex items-start gap-4 sm:gap-6 relative">
+
+                  {/* LINE */}
                   {index < steps.length - 1 && (
-                    <div className="absolute left-[19px] top-10 bottom-[-40px] w-[2px] bg-primary/30 z-0"></div>
+                    <div className="absolute left-[18px] top-10 bottom-[-40px] w-[2px] bg-primary/30"></div>
                   )}
 
-                  {/* Number */}
-                  <div className="z-10 flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white font-semibold shadow-md shrink-0">
+                  {/* NUMBER */}
+                  <div className="z-10 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary text-white text-sm sm:text-base font-semibold shrink-0">
                     {step.id}
                   </div>
 
-                  {/* Content */}
+                  {/* TEXT */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gray-500 dark:text-gray-400 max-w-[420px]">
+                    <p className="mt-1 sm:mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
+
                 </div>
               ))}
             </div>
+
           </div>
+
         </div>
       </div>
     </section>
