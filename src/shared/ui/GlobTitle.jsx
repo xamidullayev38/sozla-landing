@@ -1,4 +1,4 @@
-export default function Title({ children, className = "" }) {
+export default function GlobTitle({ children, className = "" }) {
   return (
     <h2
       className={`

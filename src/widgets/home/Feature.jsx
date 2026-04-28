@@ -1,6 +1,8 @@
 import React from "react";
 
-import img from "@assets/img/features/phone.webp"
+import img from "@assets/img/features/phone.webp";
+import GlobTitle from "@shared/ui/GlobTitle";
+
 const featuresLeft = [
   {
     id: 1,
@@ -30,7 +32,6 @@ const featuresRight = [
 const FeatureItem = ({ id, title, desc }) => {
   return (
     <div className="flex items-start gap-4">
-      
       {/* Number */}
       <div
         className="
@@ -70,25 +71,23 @@ const Feature = () => {
   return (
     <section
       className="
-      w-full py-20
+      w-full py-5
       bg-[#f5f7f6] dark:bg-[#0f172a]
       transition-colors duration-300
     "
     >
       <div className="max-w-6xl mx-auto px-4">
+        <div className="mx-auto my-20 max-w-[530px]">
+          <GlobTitle>“So`zla” zamonaviy va samarali yechim </GlobTitle>
+        </div>
         <div className="grid md:grid-cols-3 gap-10 items-center">
-          
-          {/* LEFT */}
           <div className="flex flex-col gap-10">
             {featuresLeft.map((item) => (
               <FeatureItem key={item.id} {...item} />
             ))}
           </div>
 
-          {/* CENTER */}
           <div className="relative flex justify-center items-center">
-            
-            {/* GREEN GLOW */}
             <div
               className="
               absolute w-[320px] h-[320px] rounded-full
@@ -97,7 +96,6 @@ const Feature = () => {
             "
             />
 
-            {/* IMAGE */}
             <img
               src={img}
               alt="phone"
@@ -109,7 +107,6 @@ const Feature = () => {
             />
           </div>
 
-          {/* RIGHT */}
           <div className="flex flex-col gap-10">
             {featuresRight.map((item) => (
               <FeatureItem key={item.id} {...item} />
