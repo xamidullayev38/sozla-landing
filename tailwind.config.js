@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6CC24A", // yashil
+        primary: "var(--color-primary)",
       },
     },
     container: {

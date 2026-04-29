@@ -10,13 +10,11 @@ import Problems from './../widgets/home/Problems';
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <Problems />
       <Feature />
       <HowItWorks />
       <Exercices />
-      <Footer />
     </>
   )
 }

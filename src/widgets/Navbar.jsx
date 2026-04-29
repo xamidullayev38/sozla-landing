@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "@/shared/ui/Button";
-import logo from "@assets/img/nav/logo.png";
+import logo from "@assets/img/sozla.svg";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/features/theme-toggle/ui/ThemeToggle";
 import { Menu, X } from "lucide-react";
@@ -25,11 +25,11 @@ export default function Navbar() {
 
           {/* Desktop */}
           <nav className="hidden md:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
-            <Link className="hover:text-primary transition">Asosiy</Link>
-            <Link className="hover:text-primary transition">Ilova haqida</Link>
-            <Link className="hover:text-primary transition">Biz haqimizda</Link>
-            <Link className="hover:text-primary transition">Bog‘lanish</Link>
-            <Link className="hover:text-primary transition">FAQ</Link>
+            <Link to="/" className="hover:text-primary transition">Asosiy</Link>
+            <a href="#feature" className="hover:text-primary transition">Ilova haqida</a>
+            <Link to="/about" className="hover:text-primary transition">Biz haqimizda</Link>
+            <Link to="/contact" className="hover:text-primary transition">Bog‘lanish</Link>
+            <Link to="/faq" className="hover:text-primary transition">FAQ</Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />

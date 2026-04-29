@@ -1,18 +1,32 @@
+:root {
+  --color-primary: #6CC24A; 
+}
+
+.dark {
+  --color-primary: #4ade80; 
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Chrome, Safari */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Firefox */
 html {
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
-/* IE/Edge */
 body {
   -ms-overflow-style: none;
+}
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
 }

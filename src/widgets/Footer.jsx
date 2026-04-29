@@ -4,8 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 
 // Assetlar (Yo'llarni o'zingizga moslang)
 import googlePlay from "@assets/img/hero/play.svg";
-import appStore from "@assets/img/hero/appstore.png";
-import logo from "@assets/img/nav/logo.png";
+import appStore from "@assets/img/hero/appstore.svg";
+import logo from "@assets/img/sozla.svg";
 import Button from "./../shared/ui/Button";
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
         {/* YUQORI QISM: Logo va Yuklab olish */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
           <div className="max-w-[480px]">
-            <img src={logo} alt="So'zla" className="h- mb-8 object-contain" />
+            <img src={logo} alt="So'zla" className="h-20 mb-8 object-contain" />
             <p className="text-[#64748B] dark:text-gray-400 text-lg font-medium leading-relaxed">
               O’zbek tilidagi eng sifatli kontent orqali{" "}
               <br className="hidden md:block" />
@@ -37,14 +37,14 @@ const Footer = () => {
             </h4>
             <div className="flex gap-4">
               {/* Rasmdagidek och yashil backgroundli tugmalar */}
-              <Button bg="#498d2c" borderColor="#356520">
+              <Button >
                 <img
                   src={googlePlay}
                   alt="Google Play"
                   className="h-5 w-auto object-contain"
                 />
               </Button>
-              <Button bg="#498d2c" borderColor="#356520">
+              <Button >
                 <img
                   src={appStore}
                   alt="App Store"

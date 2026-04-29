@@ -69,7 +69,7 @@ const FeatureItem = ({ id, title, desc }) => {
 
 const Feature = () => {
   return (
-    <section
+    <section id="feature"
       className="
       w-full py-20
       bg-[#f5f7f6] dark:bg-[#0f172a]
