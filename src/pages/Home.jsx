@@ -7,7 +7,7 @@ import HowItWorks from "../widgets/home/HowItWorks";
 import Navbar from "../widgets/Navbar";
 import Problems from './../widgets/home/Problems';
 
-export default function Home() {
+export default function Home() {  
   return (
     <>
       <Hero />

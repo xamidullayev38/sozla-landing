@@ -26,7 +26,6 @@ export default function Navbar() {
           {/* Desktop */}
           <nav className="hidden md:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
             <Link to="/" className="hover:text-primary transition">Asosiy</Link>
-            <a href="#feature" className="hover:text-primary transition">Ilova haqida</a>
             <Link to="/about" className="hover:text-primary transition">Biz haqimizda</Link>
             <Link to="/contact" className="hover:text-primary transition">Bog‘lanish</Link>
             <Link to="/faq" className="hover:text-primary transition">FAQ</Link>

@@ -7,15 +7,9 @@ import googlePlay from "@assets/img/hero/play.svg";
 import appStore from "@assets/img/hero/appstore.svg";
 import logo from "@assets/img/sozla.svg";
 import Button from "./../shared/ui/Button";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const navLinks = [
-    { name: "Asosiy", href: "#" },
-    { name: "Ilova haqida", href: "#" },
-    { name: "Biz haqimizda", href: "#" },
-    { name: "Bog'lanish", href: "#" },
-    { name: "FAQ", href: "#" },
-  ];
 
   return (
     <footer className="bg-white dark:bg-[#0F172A] pt-16 pb-10">
@@ -37,14 +31,14 @@ const Footer = () => {
             </h4>
             <div className="flex gap-4">
               {/* Rasmdagidek och yashil backgroundli tugmalar */}
-              <Button >
+              <Button>
                 <img
                   src={googlePlay}
                   alt="Google Play"
                   className="h-5 w-auto object-contain"
                 />
               </Button>
-              <Button >
+              <Button>
                 <img
                   src={appStore}
                   alt="App Store"
@@ -58,15 +52,30 @@ const Footer = () => {
         {/* O'RTA QISM: Navigatsiya Linklari */}
         <div className="mb-12">
           <nav className="flex flex-wrap gap-x-10 gap-y-4 border-b border-gray-50 pb-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-[#1E293B] dark:text-gray-200 text-[17px] font-bold hover:text-primary transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            <Link
+              to="/"
+              className="text-[#1E293B] dark:text-gray-200 text-[17px] font-bold hover:text-primary transition-colors"
+            >
+              Asosiy
+            </Link>
+            <Link
+              to="/about"
+              className="text-[#1E293B] dark:text-gray-200 text-[17px] font-bold hover:text-primary transition-colors"
+            >
+              Biz haqimizda
+            </Link>
+            <Link
+              to="/contact"
+              className="text-[#1E293B] dark:text-gray-200 text-[17px] font-bold hover:text-primary transition-colors"
+            >
+              Bog'lanish
+            </Link>
+            <Link
+              to="/faq"
+              className="text-[#1E293B] dark:text-gray-200 text-[17px] font-bold hover:text-primary transition-colors"
+            >
+              FAQ
+            </Link>
           </nav>
         </div>
 
