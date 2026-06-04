@@ -4,6 +4,7 @@ import logo from "@assets/img/sozla.svg";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/features/theme-toggle/ui/ThemeToggle";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -14,10 +15,51 @@ export default function Navbar() {
     }
   }, [isOpen]);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="w-full border-b bg-white dark:bg-gray-900 dark:border-gray-800">
+    <motion.header
+      initial={false}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeOut",
+      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+    ${
+      scrolled
+        ? `
+          backdrop-blur-xl
+          bg-white/70
+          dark:bg-gray-900/70
+          border-b
+          border-white/20
+          dark:border-gray-700/30
+          shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+        `
+        : `
+          bg-transparent
+          border-transparent
+        `
+    }
+  `}
+    >
       <div className="container mx-auto">
-        <div className=" max-w-7xl mx-auto py-3 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto py-4 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img src={logo} alt="Logo" className="h-8" />
@@ -25,10 +67,18 @@ export default function Navbar() {
 
           {/* Desktop */}
           <nav className="hidden md:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
-            <Link to="/" className="hover:text-primary transition">Asosiy</Link>
-            <Link to="/about" className="hover:text-primary transition">Biz haqimizda</Link>
-            <Link to="/contact" className="hover:text-primary transition">Bog‘lanish</Link>
-            <Link to="/faq" className="hover:text-primary transition">FAQ</Link>
+            <Link to="/" className="hover:text-primary transition">
+              Asosiy
+            </Link>
+            <Link to="/about" className="hover:text-primary transition">
+              Biz haqimizda
+            </Link>
+            <Link to="/contact" className="hover:text-primary transition">
+              Bog‘lanish
+            </Link>
+            <Link to="/faq" className="hover:text-primary transition">
+              FAQ
+            </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
@@ -118,6 +168,6 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 }
