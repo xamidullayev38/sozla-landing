@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ThemeToggle from "@/features/theme-toggle/ui/ThemeToggle";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import LanguageSelect from "./navbar/LanguageSelection";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
@@ -83,11 +84,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
 
-            <select className="bg-transparent text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 focus:outline-none focus:border-primary transition pb-1">
-              <option className="bg-white text-black">O‘zbek</option>
-              <option className="bg-white text-black">Русский</option>
-              <option className="bg-white text-black">English</option>
-            </select>
+            <LanguageSelect />
 
             <Button className="bg-primary text-white px-5 py-2 rounded-full hover:opacity-90">
               Yuklab olish
@@ -154,11 +151,7 @@ export default function Navbar() {
 
               {/* Bottom */}
               <div className="mt-auto bg-white dark:bg-gray-800 p-4 mb-2 rounded-2xl shadow-sm flex flex-col gap-4">
-                <select className="w-full border rounded-xl px-4 py-3 pr-12 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200">
-                  <option>O‘zbek</option>
-                  <option>Русский</option>
-                  <option>English</option>
-                </select>
+                <LanguageSelect />
 
                 <Button className="bg-primary text-white py-3 rounded-full w-full text-lg hover:opacity-90">
                   Yuklab olish
