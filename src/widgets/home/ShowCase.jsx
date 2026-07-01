@@ -27,9 +27,6 @@ const ShowCase = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            whileHover={{
-              y: -8,
-            }}
             className="
               group
               flex-1
@@ -54,12 +51,6 @@ const ShowCase = () => {
               <motion.img
                 src={ai}
                 alt="ai screen"
-                whileHover={{
-                  scale: 1.04,
-                }}
-                transition={{
-                  duration: 0.4,
-                }}
                 className="
                   w-full
                   max-w-[450px]
@@ -79,9 +70,6 @@ const ShowCase = () => {
             viewport={{ once: true }}
             transition={{
               delay: 0.2,
-            }}
-            whileHover={{
-              y: -8,
             }}
             className="flex-1 min-h-[450px] lg:min-h-[550px] bg-[#EAF3E5] dark:bg-[#1E293B] rounded-[32px] pt-10 px-6 lg:px-10 flex flex-col items-center overflow-hidden transition-all"
           >

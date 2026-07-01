@@ -1,11 +1,13 @@
 import React from "react";
-import profile from "@assets/img/profile.png"
+import profile from "@assets/img/profile.png";
+import { motion } from "framer-motion";
+
 const teamMembers = [
   {
     name: "Saidkamol",
     role: "Frontend developer",
     bio: "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    image: profile, 
+    image: profile,
   },
   {
     name: "Bekzod",
@@ -27,53 +29,162 @@ const teamMembers = [
   },
 ];
 
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+
+const cardAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+
+
 const TeamCard = ({ name, role, bio, image }) => (
-  <div className="group relative flex flex-col items-center p-8 rounded-[2.5rem] bg-[#f0f7ee] dark:bg-green-900/10 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-green-200/50 dark:hover:shadow-none">
-    
-    <div className="w-32 h-32 rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white dark:border-slate-800 shadow-sm transition-transform duration-500 group-hover:scale-110">
-      <img 
-        src={image} 
-        alt={name} 
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+  <motion.div
+    variants={cardAnimation}
+    whileHover={{
+      y: -12,
+      scale: 1.03,
+    }}
+    transition={{
+      duration: 0.4,
+    }}
+    className="group relative flex flex-col items-center p-8 rounded-[2.5rem] bg-[#f0f7ee] dark:bg-green-900/10 hover:shadow-2xl hover:shadow-green-200/50 dark:hover:shadow-none"
+  >
+
+    <motion.div
+      whileHover={{
+        scale: 1.1,
+      }}
+      className="w-32 h-32 rounded-full bg-gray-200 mb-6 overflow-hidden border-4 border-white dark:border-slate-800 shadow-sm"
+    >
+      <img
+        src={image}
+        alt={name}
+        className="
+          w-full 
+          h-full 
+          object-cover 
+          grayscale 
+          group-hover:grayscale-0 
+          transition-all 
+          duration-500
+        "
       />
-    </div>
+    </motion.div>
+
 
     <h3 className="text-xl font-bold text-[#2D3142] dark:text-white mb-1">
       {name}
     </h3>
+
+
     <p className="text-green-600 dark:text-green-400 font-medium mb-4">
       {role}
     </p>
+
+
     <p className="text-gray-500 dark:text-gray-400 text-center text-sm leading-relaxed max-w-[200px]">
       {bio}
     </p>
 
-    <div className="absolute bottom-6 w-0 h-1 bg-green-500 rounded-full transition-all duration-500 group-hover:w-12" />
-  </div>
+
+    <motion.div
+      initial={{ width: 0 }}
+      whileHover={{ width: 48 }}
+      transition={{ duration: 0.4 }}
+      className="absolute bottom-6 h-1 bg-green-500 rounded-full"
+    />
+
+  </motion.div>
 );
+
+
 
 export default function TeamSection() {
   return (
     <section className="py-24 bg-white dark:bg-slate-900 transition-colors">
+
       <div className="container mx-auto px-4 max-w-6xl">
-        
-        <div className="text-center mb-20">
+
+
+        <motion.div
+          initial={{
+            opacity:0,
+            y:-40
+          }}
+          whileInView={{
+            opacity:1,
+            y:0
+          }}
+          viewport={{
+            once:true
+          }}
+          transition={{
+            duration:0.7
+          }}
+          className="text-center mb-20"
+        >
+
           <h2 className="text-4xl md:text-5xl font-bold text-[#2D3142] dark:text-white mb-6">
             Bizning jamoa
           </h2>
+
+
           <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-400 text-lg">
             Our philosophy is simple — hire a team of diverse, passionate people 
-            and foster a culture that empowers you to do you best work.
+            and foster a culture that empowers you to do your best work.
           </p>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <TeamCard key={index} {...member} />
+
+        </motion.div>
+
+
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{
+            once:true,
+            amount:0.2
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+
+          {teamMembers.map((member,index)=>(
+            <TeamCard 
+              key={index}
+              {...member}
+            />
           ))}
-        </div>
-        
+
+
+        </motion.div>
+
+
       </div>
+
     </section>
   );
 }

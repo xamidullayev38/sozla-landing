@@ -6,6 +6,7 @@ import { getTheme, setTheme } from "../features/theme-toggle/model/theme";
 import MainLayout from "./../widgets/layout/MainLayout";
 import Contact from './../pages/Contact';
 import Faq from "../pages/Faq";
+import ScrollTop from "../shared/ui/ScrollTop";
 
 const theme = getTheme();
 setTheme(theme);
@@ -20,7 +21,9 @@ export default function App() {
   };
 
   return (
+    <>
     <ReactLenis root options={lenisOptions}>
+      <ScrollTop />
       <Routes>
         <Route element={<MainLayout />}> 
           <Route path="/" element={<Home />} />
@@ -31,5 +34,6 @@ export default function App() {
         <Route path="*" element={<h1>not found</h1>}/>
       </Routes>
     </ReactLenis>
+    </>
   );
 }
